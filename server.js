@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const UserModel = require('./Models/Users')
+const cors = require('cors')
 const app = express()
 async function mongooseConnect() {
   await mongoose.connect(
@@ -9,6 +10,7 @@ async function mongooseConnect() {
 }
 mongooseConnect()
 app.use(express.json())
+app.use(cors())
 //add
 app.post('/users', async (req, res) => {
   const newUser = new UserModel(req.body)
@@ -36,7 +38,8 @@ app.patch('/users/:id', async (req, res) => {
 app.delete('/users/:id', async (req, res) => {
   const id = req.params.id
   await UserModel.findByIdAndDelete(id)
-  res.status(200).send('Deleted !')
+  const Users = await UserModel.find()
+  res.status(200).send(Users)
 })
 app.listen(8080, () => {
   console.log('server running on 8080')
