@@ -3,5 +3,23 @@
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "mongoose": "^6.6.4"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "single-page-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RashadXalil/users-app-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RashadXalil/users-app-backend/issues"
+  },
+  "homepage": "https://github.com/RashadXalil/users-app-backend#readme",
+  "description": ""
 }
